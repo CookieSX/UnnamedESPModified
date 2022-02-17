@@ -568,6 +568,19 @@ local Modules = {
 
         return Name;
     end;
+    
+    [2413927524] = {
+		CustomESP = function()
+			if workspace:FindFirstChild'Rake' and workspace.Rake:FindFirstChild'Monster' then
+				local Main	= workspace.Rake:FindFirstChild'Head';
+				local Hum	= workspace.Rake:FindFirstChild'Monster';
+				
+				if Main and Hum then
+					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.Rake, Main, string.format('[%s] [%s/%s]', workspace.Rake.Name, Hum.Health, Hum.MaxHealth), Color3.fromRGB(13, 255, 227));
+				end
+			end
+		end;
+	};
 };
 };
 
