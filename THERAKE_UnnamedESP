@@ -568,6 +568,7 @@ local Modules = {
 
         return Name;
     end;
+};
     
 	[2413927524] = {
 		CustomESP = function()
@@ -579,7 +580,6 @@ local Modules = {
 			end
 		end;
 	};
-};
 };
 
 if Modules[game.PlaceId] ~= nil then
