@@ -595,7 +595,7 @@ local Modules = {
 			
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, Main, 'Flare Gun', Color3.fromRGB(13, 255, 227));
+					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
 				end
 			end
 		end;
