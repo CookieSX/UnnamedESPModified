@@ -569,14 +569,12 @@ local Modules = {
         return Name;
     end;
     
-    [2413927524] = {
+	[2413927524] = {
 		CustomESP = function()
-			if workspace:FindFirstChild'Rake' and workspace.Rake:FindFirstChild'Monster' then
-				local Main	= workspace.Rake:FindFirstChild'Head';
-				local Hum	= workspace.Rake:FindFirstChild'Monster';
-				
-				if Main and Hum then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.Rake, Main, string.format('[%s] [%s/%s]', workspace.Rake.Name, Hum.Health, Hum.MaxHealth), Color3.fromRGB(13, 255, 227));
+			if workspace:FindFirstChild'Rake' then
+				local Main	= workspace.Rake;
+				if Main then
+					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. Main.Monster.Health .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
 				end
 			end
 		end;
