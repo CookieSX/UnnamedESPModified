@@ -573,11 +573,25 @@ local Modules = {
 	[2413927524] = {
 		CustomESP = function()
 			if workspace:FindFirstChild'Rake' then
-				local Main	= workspace.Rake;
+				local Main = workspace.Rake;
 				if Main then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. Main.Monster.Health .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
+					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
 				end
 			end
+			
+			if workspace:FindFirstChild'Filter' then
+				if workspace.Filter:FindFirstChild'ScrapSpawns' then
+					for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
+						if v.Name == "Scrap" then
+							Main = v
+
+							if Main then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
+							end
+						end
+					end
+				end	
+			end		
 		end;
 	};
 };
