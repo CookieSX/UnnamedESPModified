@@ -582,52 +582,68 @@ local Modules = {
 			end)()
 			
 			print("hi")
-			if workspace:FindFirstChild'Filter' then
-				if workspace.Filter:FindFirstChild'ScrapSpawns' then
-					for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
-						if v.Name == "Scrap" then
-							local Main = v
-
-							if Main then
-								pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
+			
+			coroutine.wrap(function()
+				if workspace:FindFirstChild'Filter' then
+					if workspace.Filter:FindFirstChild'ScrapSpawns' then
+						for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
+							if v.Name == "Scrap" then
+								local Main = v
+	
+								if Main then
+									pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
+								end
 							end
 						end
-					end
+					end		
 				end	
-			end
+			end)()
+			
 			print("hello")
-			if workspace:FindFirstChild'FlareGunPickUp' then
-				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
+			
+			coroutine.wrap(function()
+				if workspace:FindFirstChild'FlareGunPickUp' then
+					if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
+						pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
+					end	
 				end
-			end
+			end)()
+			
 			print("Working")
-			if workspace:FindFirstChild'Debris' then
-				if workspace.Debris:FindFirstChild'SupplyCrates' then
-					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
-						if v.Name == "Box" then
-							local Main = v
+			
+			coroutine.wrap(function()
+				if workspace:FindFirstChild'Debris' then
+					if workspace.Debris:FindFirstChild'SupplyCrates' then
+						for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
+							if v.Name == "Box" then
+								local Main = v
+								
+								if Main then
+									pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
+								end
+							end
+						end
+					end	
+				end
+			end)()
+			
+			print("lol")
+			
+			coroutine.wrap(function()
+				if workspace:FindFirstChild'Map' then
+					if workspace.Map:FindFirstChild'PowerStation' then
+						if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
+							local Main = workspace.Map.PowerStation.StationFolder.StationGUIPart
+							--local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
 							
-							if Main then
-								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
+							if Main then --and Power then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station, Color3.fromRGB(222, 222, 13));--\nPower Left:'.. Power, Color3.fromRGB(222, 222, 13));
 							end
 						end
 					end
-				end	
-			end
-			print("lol")
-			if workspace:FindFirstChild'Map' then
-				if workspace.Map:FindFirstChild'PowerStation' then
-					if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
-						local Main = workspace.Map.PowerStation.StationFolder.StationGUIPart
-						--local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
-						
-						if Main then --and Power then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station, Color3.fromRGB(222, 222, 13));--\nPower Left:'.. Power, Color3.fromRGB(222, 222, 13));
-						end
-					end
 				end
-			end
+			end)()
+			
 			print("XD")
 			--if workspace:FindFirstChild'Map' then
 			--	if workspace.Map:FindFirstChild'Shack' then
