@@ -579,8 +579,6 @@ local Modules = {
 					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
 				end
 			end
-				
-			warn("hi")
 			
 			if workspace:FindFirstChild'Filter' then
 				if workspace.Filter:FindFirstChild'ScrapSpawns' then
@@ -595,15 +593,13 @@ local Modules = {
 				end		
 			end	
 			
-			warn("hello")
+			
 			
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
 					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
 				end	
 			end
-			
-			warn("Working")
 			
 			if workspace:FindFirstChild'Debris' then
 				if workspace.Debris:FindFirstChild'SupplyCrates' then
@@ -618,8 +614,6 @@ local Modules = {
 					end
 				end	
 			end
-			
-			warn("CooL")
 		end;
 	};
 };
