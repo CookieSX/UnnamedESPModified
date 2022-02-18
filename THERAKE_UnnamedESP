@@ -623,7 +623,20 @@ local Modules = {
 				end
 			end
 			
-			
+			if workspace:FindFirstChild'Debris' then
+				if workspace.Debris:FindFirstChild'SupplyCrates' then
+					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren()) do
+						if v.Name == 'Box' then
+							local Main = v
+							local HitBox = v:FindFirstChild'HitBox'
+							
+							if Main then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, HitBox, 'Supply Drop', Color3.fromRGB(75, 225, 75));
+							end
+						end
+					end
+				end	
+			end
 			
 		end;
 	};
