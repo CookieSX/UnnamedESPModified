@@ -580,7 +580,7 @@ local Modules = {
 				end
 			end
 				
-			print("hi")
+			warn("hi")
 			
 			if workspace:FindFirstChild'Filter' then
 				if workspace.Filter:FindFirstChild'ScrapSpawns' then
@@ -595,7 +595,7 @@ local Modules = {
 				end		
 			end	
 			
-			print("hello")
+			warn("hello")
 			
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
@@ -603,7 +603,7 @@ local Modules = {
 				end	
 			end
 			
-			print("Working")
+			warn("Working")
 			
 			if workspace:FindFirstChild'Debris' then
 				if workspace.Debris:FindFirstChild'SupplyCrates' then
@@ -619,7 +619,7 @@ local Modules = {
 				end	
 			end
 			
-			print("CooL")
+			warn("CooL")
 		end;
 	};
 };
