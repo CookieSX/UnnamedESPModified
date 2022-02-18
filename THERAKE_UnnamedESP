@@ -532,43 +532,43 @@ local Modules = {
 	};
 
     [5735553160] = { -- Deepwoken [Depths]
-    CustomPlayerTag = function(Player)
-        local Name = '';
-        CharacterName = Player:GetAttribute'CharacterName'; -- could use leaderstats but lazy
+    	CustomPlayerTag = function(Player)
+        	local Name = '';
+        	CharacterName = Player:GetAttribute'CharacterName'; -- could use leaderstats but lazy
+	
+        	if not IsStringEmpty(CharacterName) then
+	            Name = ('\n[%s]'):format(CharacterName);
+        	    local Character = GetCharacter(Player);
+        	    local Extra = {};
+	
+        	    if Character then
+                	local Blood, Armor = Character:FindFirstChild('Blood'), Character:FindFirstChild('Armor');
+	
+        	        if Blood and Blood.ClassName == 'DoubleConstrainedValue' then
+                	    table.insert(Extra, ('B%d'):format(Blood.Value));
+                	end
+	
+            	    if Armor and Armor.ClassName == 'DoubleConstrainedValue' then
+               	        table.insert(Extra, ('A%d'):format(math.floor(Armor.Value / 10)));
+               	    end
+            	end
+	
+          	  local BackpackChildren = Player.Backpack:GetChildren()
 
-        if not IsStringEmpty(CharacterName) then
-            Name = ('\n[%s]'):format(CharacterName);
-            local Character = GetCharacter(Player);
-            local Extra = {};
+         	   for index = 1, #BackpackChildren do
+        	        local Oath = BackpackChildren[index]
+         	       if Oath.ClassName == 'Folder' and Oath.Name:find('Talent:Oath') then
+         	           local OathName = Oath.Name:gsub('Talent:Oath: ', '')
+         	           table.insert(Extra, OathName);
+         	       end
+            	end
+	
+        	    if #Extra > 0 then Name = Name .. ' [' .. table.concat(Extra, '-') .. ']'; end
+        	end
 
-            if Character then
-                local Blood, Armor = Character:FindFirstChild('Blood'), Character:FindFirstChild('Armor');
-
-                if Blood and Blood.ClassName == 'DoubleConstrainedValue' then
-                    table.insert(Extra, ('B%d'):format(Blood.Value));
-                end
-
-                if Armor and Armor.ClassName == 'DoubleConstrainedValue' then
-                    table.insert(Extra, ('A%d'):format(math.floor(Armor.Value / 10)));
-                end
-            end
-
-            local BackpackChildren = Player.Backpack:GetChildren()
-
-            for index = 1, #BackpackChildren do
-                local Oath = BackpackChildren[index]
-                if Oath.ClassName == 'Folder' and Oath.Name:find('Talent:Oath') then
-                    local OathName = Oath.Name:gsub('Talent:Oath: ', '')
-                    table.insert(Extra, OathName);
-                end
-            end
-
-            if #Extra > 0 then Name = Name .. ' [' .. table.concat(Extra, '-') .. ']'; end
-        end
-
-        return Name;
-    end;
-};
+       	    return Name;
+   	 end;
+	};
     
 	[2413927524] = { -- the rake
 		CustomESP = function()
@@ -627,37 +627,7 @@ local Modules = {
 				end
 			end)()
 			
-			print("lol")
-			
-			coroutine.wrap(function()
-				if workspace:FindFirstChild'Map' then
-					if workspace.Map:FindFirstChild'PowerStation' then
-						if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
-							local Main = workspace.Map.PowerStation.StationFolder.StationGUIPart
-							--local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
-							
-							if Main then --and Power then
-								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station, Color3.fromRGB(222, 222, 13));--\nPower Left:'.. Power, Color3.fromRGB(222, 222, 13));
-							end
-						end
-					end
-				end
-			end)()
-			
-			print("XD")
-			--if workspace:FindFirstChild'Map' then
-			--	if workspace.Map:FindFirstChild'Shack' then
-			--		if workspace.Map.Shack:FindFirstChild'ShopPart' then
-			--			local Main = workspace.Map.Shack.ShopPart
-			--			local Time = game.ReplicatedStorage.Timer.Value
-			--			
-			--			if Main and Time then
-			--				pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left:'.. Time, Color3.fromRGB(222, 222, 13));
-			--			end
-			--		end
-			--	end
-			--end
-			print("EZ")
+			print("CooL")
 		end;
 	};
 };
