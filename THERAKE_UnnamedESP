@@ -617,10 +617,10 @@ local Modules = {
 				if workspace.Map:FindFirstChild'PowerStation' then
 					if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
 						local Main = workspace.Map.PowerStation.StationFolder:FindFirstChild'StationGUIPart'
-						local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
+						--local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
 						
-						if Main and Power then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station\nPower Left:'.. Power, Color3.fromRGB(222, 222, 13));
+						if Main then --and Power then
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station, Color3.fromRGB(222, 222, 13));--\nPower Left:'.. Power, Color3.fromRGB(222, 222, 13));
 						end
 					end
 				end
