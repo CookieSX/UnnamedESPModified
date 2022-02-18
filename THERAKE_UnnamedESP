@@ -606,7 +606,7 @@ local Modules = {
 						local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
 						
 						if Main and Power then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station\nPower Left: '.. Power, Color3.fromRGB(222, 222, 13));
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station\nPower Left: '.. Power .. '(' .. math.floor(Power/10) .. '%)', Color3.fromRGB(222, 222, 13));
 						end
 					end
 				end
