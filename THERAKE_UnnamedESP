@@ -598,6 +598,32 @@ local Modules = {
 					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
 				end
 			end
+			
+			if workspace:FindFirstChild'Debris' then
+				if workspace.Debris:FindFirstChild'SupplyCrates' then
+					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
+						if v.Name == "Box" then
+							local Main = v
+							
+							if Main then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
+							end
+						end
+					end
+				end	
+			end
+			
+			if workspace:FindFirstChild'Map' then
+				if workspace.Map:FindFirstChild'PowerStation' then
+					if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
+						local Main = workspace.Map.PowerStation.StationFolder:FindFirstChild'StationGUIPart'
+						
+						if Main then
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station', Color3.fromRGB(13, 255, 227));
+						end
+					end
+				end
+			end
 		end;
 	};
 };
