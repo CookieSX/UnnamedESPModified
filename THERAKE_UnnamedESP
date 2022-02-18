@@ -617,7 +617,7 @@ local Modules = {
 						local Time = game.ReplicatedStorage.Timer.Value
 						
 						if Main and Time then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left: '.. Time, Color3.fromRGB(222, 222, 13));
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left: '.. Time/60, Color3.fromRGB(222, 222, 13));
 						end
 					end
 				end
