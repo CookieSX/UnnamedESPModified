@@ -593,27 +593,12 @@ local Modules = {
 				end		
 			end	
 			
-			
-			
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
 					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
 				end	
 			end
 			
-			if workspace:FindFirstChild'Debris' then
-				if workspace.Debris:FindFirstChild'SupplyCrates' then
-					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
-						if v.Name == "Box" then
-							local Main = v
-							
-							if Main then
-								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
-							end
-						end
-					end
-				end	
-			end
 		end;
 	};
 };
