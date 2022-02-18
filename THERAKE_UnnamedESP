@@ -572,60 +572,52 @@ local Modules = {
     
 	[2413927524] = { -- the rake
 		CustomESP = function()
-			coroutine.wrap(function()
-				if workspace:FindFirstChild'Rake' then
-					local Main = workspace.Rake;
-					if Main then
-						pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
-					end
+		
+			if workspace:FindFirstChild'Rake' then
+				local Main = workspace.Rake;
+				if Main then
+					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
 				end
-			end)()
-			
+			end
+				
 			print("hi")
 			
-			coroutine.wrap(function()
-				if workspace:FindFirstChild'Filter' then
-					if workspace.Filter:FindFirstChild'ScrapSpawns' then
-						for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
-							if v.Name == "Scrap" then
-								local Main = v
-	
-								if Main then
-									pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
-								end
+			if workspace:FindFirstChild'Filter' then
+				if workspace.Filter:FindFirstChild'ScrapSpawns' then
+					for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
+						if v.Name == "Scrap" then
+							local Main = v
+							if Main then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
 							end
 						end
-					end		
-				end	
-			end)()
+					end
+				end		
+			end	
 			
 			print("hello")
 			
-			coroutine.wrap(function()
-				if workspace:FindFirstChild'FlareGunPickUp' then
-					if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
-						pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
-					end	
-				end
-			end)()
+			if workspace:FindFirstChild'FlareGunPickUp' then
+				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
+					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
+				end	
+			end
 			
 			print("Working")
 			
-			coroutine.wrap(function()
-				if workspace:FindFirstChild'Debris' then
-					if workspace.Debris:FindFirstChild'SupplyCrates' then
-						for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
-							if v.Name == "Box" then
-								local Main = v
-								
-								if Main then
-									pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
-								end
+			if workspace:FindFirstChild'Debris' then
+				if workspace.Debris:FindFirstChild'SupplyCrates' then
+					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
+						if v.Name == "Box" then
+							local Main = v
+							
+							if Main then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.HitBox, 'Supply Drop', Color3.fromRGB(13, 255, 227));
 							end
 						end
-					end	
-				end
-			end)()
+					end
+				end	
+			end
 			
 			print("CooL")
 		end;
