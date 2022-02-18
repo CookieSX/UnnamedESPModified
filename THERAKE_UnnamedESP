@@ -626,18 +626,18 @@ local Modules = {
 				end
 			end
 			
-			if workspace:FindFirstChild'Map' then
-				if workspace.Map:FindFirstChild'Shack' then
-					if workspace.Map.Shack:FindFirstChild'ShopPart' then
-						local Main = workspace.Map.Shack.ShopPart
-						local Time = game.ReplicatedStorage.Timer.Value
-						
-						if Main and Time then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left:'.. Time, Color3.fromRGB(222, 222, 13));
-						end
-					end
-				end
-			end
+			--if workspace:FindFirstChild'Map' then
+			--	if workspace.Map:FindFirstChild'Shack' then
+			--		if workspace.Map.Shack:FindFirstChild'ShopPart' then
+			--			local Main = workspace.Map.Shack.ShopPart
+			--			local Time = game.ReplicatedStorage.Timer.Value
+			--			
+			--			if Main and Time then
+			--				pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left:'.. Time, Color3.fromRGB(222, 222, 13));
+			--			end
+			--		end
+			--	end
+			--end
 		end;
 	};
 };
