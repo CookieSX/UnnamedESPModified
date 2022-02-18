@@ -578,7 +578,7 @@ local Modules = {
 					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
 				end
 			end
-			
+			print("hi")
 			if workspace:FindFirstChild'Filter' then
 				if workspace.Filter:FindFirstChild'ScrapSpawns' then
 					for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
@@ -592,13 +592,13 @@ local Modules = {
 					end
 				end	
 			end
-			
+			print("hello")
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
 					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
 				end
 			end
-			
+			print("Working")
 			if workspace:FindFirstChild'Debris' then
 				if workspace.Debris:FindFirstChild'SupplyCrates' then
 					for i, v in pairs(workspace.Debris.SupplyCrates:GetChildren())
@@ -612,7 +612,7 @@ local Modules = {
 					end
 				end	
 			end
-			
+			print("lol")
 			if workspace:FindFirstChild'Map' then
 				if workspace.Map:FindFirstChild'PowerStation' then
 					if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
@@ -625,7 +625,7 @@ local Modules = {
 					end
 				end
 			end
-			
+			print("XD")
 			--if workspace:FindFirstChild'Map' then
 			--	if workspace.Map:FindFirstChild'Shack' then
 			--		if workspace.Map.Shack:FindFirstChild'ShopPart' then
@@ -638,6 +638,7 @@ local Modules = {
 			--		end
 			--	end
 			--end
+			print("EZ")
 		end;
 	};
 };
