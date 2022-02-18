@@ -624,7 +624,9 @@ local Modules = {
 						end
 					end
 				end
-				
+			end
+			
+			if workspace:FindFirstChild'Map' then
 				if workspace.Map:FindFirstChild'Shack' then
 					if workspace.Map.Shack:FindFirstChild'ShopPart' then
 						local Main = workspace.Map.Shack.ShopPart
