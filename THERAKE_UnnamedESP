@@ -583,7 +583,7 @@ local Modules = {
 				if workspace.Filter:FindFirstChild'ScrapSpawns' then
 					for i, v in pairs(workspace.Filter.ScrapSpawns:GetDescendants()) do
 						if v.Name == "Scrap" then
-							Main = v
+							local Main = v
 
 							if Main then
 								pcall(RenderList.AddOrUpdateInstance, RenderList, v, Main, 'Scrap', Color3.fromRGB(13, 255, 227));
@@ -616,7 +616,7 @@ local Modules = {
 			if workspace:FindFirstChild'Map' then
 				if workspace.Map:FindFirstChild'PowerStation' then
 					if workspace.Map.PowerStation:FindFirstChild'StationFolder' then
-						local Main = workspace.Map.PowerStation.StationFolder:FindFirstChild'StationGUIPart'
+						local Main = workspace.Map.PowerStation.StationFolder.StationGUIPart
 						--local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
 						
 						if Main then --and Power then
