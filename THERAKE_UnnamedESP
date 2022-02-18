@@ -572,12 +572,15 @@ local Modules = {
     
 	[2413927524] = { -- the rake
 		CustomESP = function()
-			if workspace:FindFirstChild'Rake' then
-				local Main = workspace.Rake;
-				if Main then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
+			coroutine.wrap(function()
+				if workspace:FindFirstChild'Rake' then
+					local Main = workspace.Rake;
+					if Main then
+						pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
+					end
 				end
-			end
+			end)()
+			
 			print("hi")
 			if workspace:FindFirstChild'Filter' then
 				if workspace.Filter:FindFirstChild'ScrapSpawns' then
