@@ -208,6 +208,24 @@ function convertToMinutesAndSeconds(Seconds)
 	return format(Minutes)..":"..format(Seconds)
 end
 
+local Stars = {
+        [0] = { 0, 0 }, 
+        [1.5] = { 100, 199 }, 
+        [2.5] = { 350, 499 }, 
+        [3.5] = { 750, 999 }, 
+        [4.5] = { 1400, 1699 },
+        { 1, 99 }, { 200, 349 }, { 500, 749 }, { 1000, 1399 }, { 1700, 9000000000 }
+}
+
+local GetWantedStars = function(num)
+	local v1 = num;
+        for v2, v3 in pairs(Stars) do
+            if v3[1] <= v1 and v1 <= v3[2] then
+                return v2;
+            end;
+        end;
+end
+
 local Modules = {
 	[292439477] = {
 		CustomESP = function()
@@ -580,7 +598,7 @@ local Modules = {
    	 end;
 	};
     
-	[2413927524] = { -- the rake
+	[2413927524] = { -- The Rake Remastered
 		CustomESP = function()
 		
 			if workspace:FindFirstChild'Rake' then
@@ -648,6 +666,31 @@ local Modules = {
 				end	
 			end
 			
+		end;
+	};
+	
+	[2534724415] = { -- Emergency Response: Liberty County
+		CustomPlayerTag = function(Player)
+			local Name = ''
+			local Extra = {};
+			local vf = workspace:FindFirstChild'Vehicles'
+			local iswanted = Player:FindFirstChild'Is_Wanted'
+			if vf then
+				for i, v in pairs(vf:GetDescendants()) do
+					if v.Name == "Owner" then
+						if v.Value = Player.Name then
+							local carnameplusplate = v.Parent.Parent.Name .. " - " .. v.Parent.Plate.Value
+							table.insert(Extra, carnameplusplate)
+						end
+					end
+				end
+			end
+			if iswanted then
+				local wantedlevel = GetWantedStars(iswanted.Value)
+				table.insert(Extra, wantedlevel)
+			end
+			if #Extra > 0 then Name = Name .. ' [' .. table.concat(Extra, '-') .. ']'; end
+			return Name;
 		end;
 	};
 };
