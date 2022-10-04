@@ -687,7 +687,7 @@ local Modules = {
 				for i, v in pairs(vf:GetChildren()) do
 					local stufftoshow = 'Car Name: ' .. v.Name .. 'Plate: ' .. v.Control_Values.Plate.Value .. '[' .. math.round(v.Control_Values.Health/v.Control_Values.MaxHealth * 100) .. '%]'
 					local base = v.Body:FindFirstChild'Base'
-					if v and base then
+					if base then
 						pcall(RenderList.AddOrUpdateInstance, RenderList, v, HitBox, stufftoshow, Color3.fromRGB(255, 255, 255));
 					end
 				end
