@@ -198,6 +198,16 @@ local GetHealth;
 local GetAliveState;
 local CustomRootPartName;
 
+function format(Int)
+	return string.format("%02i", Int)
+end
+
+function convertToMinutesAndSeconds(Seconds)
+	local Minutes = (Seconds - Seconds%60)/60
+	Seconds = Seconds - Minutes*60
+	return format(Minutes)..":"..format(Seconds)
+end
+
 local Modules = {
 	[292439477] = {
 		CustomESP = function()
@@ -574,9 +584,9 @@ local Modules = {
 		CustomESP = function()
 		
 			if workspace:FindFirstChild'Rake' then
-				local Main = workspace.Rake;
+				local Main = workspace:FindFirstChild'Rake';
 				if Main then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main.Head, 'Rake (' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. ')', Color3.fromRGB(125, 0, 0));
+					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main:FindFirstChild'Head', 'Rake [' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. '] [' .. math.floor(Main.Monster.Health / Main.Monster.MaxHealth * 100) .. '%]', Color3.fromRGB(175, 0, 0));
 				end
 			end
 			
@@ -595,7 +605,7 @@ local Modules = {
 			
 			if workspace:FindFirstChild'FlareGunPickUp' then
 				if workspace.FlareGunPickUp:FindFirstChild'FlareGun' then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace.FlareGunPickUp.FlareGun, workspace.FlareGunPickUp.FlareGun, 'Flare Gun', Color3.fromRGB(13, 255, 227));
+					pcall(RenderList.AddOrUpdateInstance, RenderList, workspace:FindFirstChild'FlareGunPickUp':FindFirstChild'FlareGun', workspace.FlareGunPickUp:FindFirstChild'FlareGun', 'Flare Gun', Color3.fromRGB(32, 255, 69));
 				end	
 			end
 			
@@ -606,7 +616,7 @@ local Modules = {
 						local Power = game.ReplicatedStorage.PowerValues.PowerLevel.Value
 						
 						if Main and Power then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station\nPower Left: '.. Power .. ' (' .. math.floor(Power/10) .. '%)', Color3.fromRGB(222, 222, 13));
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Power Station\nPower Left: '.. Power/1000 * 100 .. '%', Color3.fromRGB(222, 222, 13));
 						end
 					end
 				end
@@ -617,7 +627,7 @@ local Modules = {
 						local Time = game.ReplicatedStorage.Timer.Value
 						
 						if Main and Time then
-							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left: '.. math.floor(Time/60) .. ' (Raw Time: ' .. Time .. ')', Color3.fromRGB(222, 222, 13));
+							pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main, 'Shop\nTime Left: '.. convertToMinutesAndSeconds(Time), Color3.fromRGB(222, 222, 13));
 						end
 					end
 				end
@@ -630,8 +640,8 @@ local Modules = {
 							local Main = v
 							local HitBox = v:FindFirstChild'HitBox'
 							
-							if Main then
-								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, HitBox, 'Supply Drop', Color3.fromRGB(75, 225, 75));
+							if Main and HitBox then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, Main, HitBox, 'Supply Drop', Color3.fromRGB(32, 255, 69));
 							end
 						end
 					end
