@@ -677,12 +677,14 @@ local Modules = {
 			local iswanted = Player:FindFirstChild'Is_Wanted'
 			if vf then
 				for i, v in pairs(vf:GetDescendants()) do
+					if v:IsA'StringValue' then
 					--if v.Name == "Owner" then
 						if v.Value == Player.Name then
 							local carnameplusplate = v.Parent.Parent.Name .. " - " .. v.Parent.Plate.Value
 							table.insert(Extra, carnameplusplate)
 						end
 					--end
+					end
 				end
 			end
 			if iswanted then
@@ -1714,7 +1716,7 @@ function CreateMenu(NewPosition) -- Create Menu
 	Menu:AddMenuInstance('TopBarTextBR', 'Text', {
 		Size 		= 18;
 		Position	= shared.MenuDrawingData.Instances.TopBarTwo.Position + V2New(BaseSize.X - 75, 25);
-		Text		= 'by ic3w0lf';
+		Text		= 'by ic3w0lf, with custom esp additions by cookie';
 		Color		= Colors.Secondary.Light;
 		Visible		= true;
 		Transparency= 1;
