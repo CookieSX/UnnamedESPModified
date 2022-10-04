@@ -673,26 +673,25 @@ local Modules = {
 		CustomPlayerTag = function(Player)
 			local Name = ''
 			local Extra = {};
-			local vf = workspace:FindFirstChild'Vehicles'
 			local iswanted = Player:FindFirstChild'Is_Wanted'
-			if vf then
-				for i, v in pairs(vf:GetDescendants()) do
-					if v:IsA'StringValue' then
-					--if v.Name == "Owner" then
-						if v.Value == Player.Name then
-							local carnameplusplate = v.Parent.Parent.Name .. " - " .. v.Parent.Plate.Value
-							table.insert(Extra, carnameplusplate)
-						end
-					--end
-					end
-				end
-			end
 			if iswanted then
-				local wantedlevel = GetWantedStars(iswanted.Value)
+				local wantedlevel = "Wanted Level: " .. GetWantedStars(iswanted.Value) .. " Stars"
 				table.insert(Extra, wantedlevel)
 			end
 			if #Extra > 0 then Name = Name .. ' [' .. table.concat(Extra, '-') .. ']'; end
 			return Name;
+		end;
+		CustomESP = function()
+			local vf = workspace:FindFirstChild'Vehicles'
+			if vf then
+				for i, v in pairs(vf:GetChildren()) do
+					local stufftoshow = 'Car Name: ' .. v.Name .. 'Plate: ' .. v.Control_Values.Plate.Value .. '[' .. math.round(v.Control_Values.Health/v.Control_Values.MaxHealth * 100) .. '%]'
+					local base = v.Body:FindFirstChild'Base'
+					if v and base then
+						pcall(RenderList.AddOrUpdateInstance, RenderList, v, HitBox, stufftoshow, Color3.fromRGB(255, 255, 255));
+					end
+				end
+			end
 		end;
 	};
 };
