@@ -586,7 +586,7 @@ local Modules = {
 			if workspace:FindFirstChild'Rake' then
 				local Main = workspace:FindFirstChild'Rake';
 				if Main then
-					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main:FindFirstChild'Head', 'Rake [' .. math.floor(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. '] [' .. math.floor(Main.Monster.Health / Main.Monster.MaxHealth * 100) .. '%]', Color3.fromRGB(175, 0, 0));
+					pcall(RenderList.AddOrUpdateInstance, RenderList, Main, Main:FindFirstChild'Head', 'Rake [' .. math.round(Main.Monster.Health) .. '/' .. Main.Monster.MaxHealth .. '] [' .. math.round(Main.Monster.Health / Main.Monster.MaxHealth * 100) .. '%]', Color3.fromRGB(175, 0, 0));
 				end
 			end
 			
