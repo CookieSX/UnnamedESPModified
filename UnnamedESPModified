@@ -677,12 +677,12 @@ local Modules = {
 			local iswanted = Player:FindFirstChild'Is_Wanted'
 			if vf then
 				for i, v in pairs(vf:GetDescendants()) do
-					if v.Name == "Owner" then
+					--if v.Name == "Owner" then
 						if v.Value == Player.Name then
 							local carnameplusplate = v.Parent.Parent.Name .. " - " .. v.Parent.Plate.Value
 							table.insert(Extra, carnameplusplate)
 						end
-					end
+					--end
 				end
 			end
 			if iswanted then
