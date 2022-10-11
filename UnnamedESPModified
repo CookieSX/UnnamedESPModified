@@ -703,7 +703,7 @@ local Modules = {
 	
 	[10205046075] = { -- Onslaught Public Dev Server
 		CustomESP = function()
-			if workspace:FindFirstChild'Filter' Then
+			if workspace:FindFirstChild'Filter' then
 				if workspace.Filter:FindFirstChild'Interactables' then
 					if workspace.Filter.Interactables:FindFirstChild'LootBags' then
 						for i, v in pairs(workspace.Filter.Interactables.LootBags:GetChildren()) do
