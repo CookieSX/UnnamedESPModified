@@ -716,7 +716,7 @@ local Modules = {
 				
 				if workspace.Filter:FindFirstChild'Dealers' then
 					for i, v in pairs(workspace.Filter.Dealers:GetChildren()) do
-						pcall(RenderList.AddOrUpdateInstance, RenderList, v, v, v.Name, Color3.fromRGB(222, 222, 13));
+						pcall(RenderList.AddOrUpdateInstance, RenderList, v, v.Head, v.Name, Color3.fromRGB(222, 222, 13));
 					end
 				end
 			end
