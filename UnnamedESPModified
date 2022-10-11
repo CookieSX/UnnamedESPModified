@@ -700,6 +700,28 @@ local Modules = {
 			end
 		end;
 	};
+	
+	[10205046075] = { -- Onslaught Public Dev Server
+		CustomESP = function()
+			if workspace:FindFirstChild'Filter' Then
+				if workspace.Filter:FindFirstChild'Interactables' then
+					if workspace.Filter.Interactables:FindFirstChild'LootBags' then
+						for i, v in pairs(workspace.Filter.Interactables.LootBags:GetChildren()) do
+							if v.Name == 'Tier3' then
+								pcall(RenderList.AddOrUpdateInstance, RenderList, v, v, v.ContainedItem.Value, Color3.fromRGB(13, 255, 227));
+							end
+						end
+					end
+				end
+				
+				if workspace.Filter:FindFirstChild'Dealers' then
+					for i, v in pairs(workspace.Filter.Dealers:GetChildren()) do
+						pcall(RenderList.AddOrUpdateInstance, RenderList, v, v.HumanoidRootPart, v.Name, Color3.fromRGB(13, 255, 227));
+					end
+				end
+			end
+		end;
+	};
 };
 
 if Modules[game.PlaceId] ~= nil then
